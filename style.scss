@@ -1,0 +1,120 @@
+$mobile: 375px;
+$desktop: 1440px;
+
+@mixin media-minwidth($screensize) {
+    @media (min-width:$screensize) {
+        @content;
+    }
+}
+
+@mixin media-maxwidth($screensize) {
+    @media (max-width:$screensize) {
+        @content;
+    }
+}
+
+body {
+    width: 100%;
+    background-color: black;
+}
+
+.section1,
+.section2 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 2%;
+    text-align: left;
+
+    @include media-maxwidth($mobile) {
+        flex-direction: column;
+        max-width: 100%;
+    }
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    
+    @include media-maxwidth($mobile){
+        display: none;
+    }
+}
+.card__img:hover{
+    box-shadow: 0px 0px 6px 3px red;
+}
+.card__img {
+    width: 50%;
+    height: 40%;
+    border-radius: 20%;
+    margin: 25px;
+    box-shadow: 0px 0px 6px 3px white;
+
+    @include media-maxwidth($mobile){
+        width: 50%;
+        height: auto;
+    }
+}
+
+.imgheader {
+    width: 25%;
+    border-radius: 30%;
+    box-shadow: 0px 0px 6px 3px red;
+    margin-left: 50px;
+}
+
+.textheader {
+    width: 50%;
+    padding-left: 100px;
+    font-size: 25px;
+}
+
+
+.card {
+    width: 100%;
+    margin: 0.5%;
+    color: white;
+    background-color: black;
+    overflow: auto;
+    border-radius: 20px;
+    box-shadow: 0px 0px 6px 3px white;
+
+    @include media-maxwidth($mobile){
+        width: auto;
+        height: auto;
+        margin: 3%;
+    }
+}
+
+
+.card:hover {
+    transform: scale(0.9);
+    background-color: grey;
+    overflow: hidden;
+    box-shadow: 0px 0px 6px 3px red;
+}
+
+.card__name,
+.card__age,
+.card__club,
+.card__position,
+.card__nationality {
+    margin-left: 10px;
+
+}
+.card__name:hover{
+    color: red;
+}
+.card__age:hover{
+    color: yellow;
+}
+.card__club:hover{
+    color: blue;
+}.card__position:hover{
+    color: green;
+}.card__nationality:hover{
+    color: greenyellow;
+}
